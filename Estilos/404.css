@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Metal+Mania&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    background: #07060a;
+}
+
+
+.container{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bubbles{
+    position: relative;
+    display: flex;
+}
+
+.bubbles span{
+    padding: 20px;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: #ff9306;
+    margin: 0 4px;
+    border-radius: 50%;
+    filter: blur(2px);
+    box-shadow: 0 0 0 10px #dca14f44, 0 0 50px #dcab4f, 0 0 100px #dcab4f;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(125s / var(--i));
+}
+
+img{
+    width: 70px;
+    height: 70px;
+    filter: drop-shadow(3px 2px 2px rgba(142, 142, 142, 0.665));
+    animation: mur 15s linear infinite;
+    animation-duration: calc(125s / var(--i));
+}
+
+.advertencia{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.cuatrocientos {
+    display: inline-block;
+    font-size: 13rem; 
+    font-family: 'Nosifer', sans-serif;
+    background-color: transparent;
+    -webkit-text-stroke: 3px rgb(255, 223, 177);
+    color: transparent;
+    animation: neon 2.5s alternate ease-in-out infinite;
+}
+
+
+.notfound{
+    font-size: 2rem;
+    color: #959494;
+    font-family: 'Metal Mania', sans-serif;
+    
+}
+
+.ups{
+    font-size: 4rem;
+    color: rgb(252, 233, 209);
+    font-weight: bolder;
+}
+
+.volver{
+    font-size: 1.4rem;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 45px;
+    padding: 15px 75px;
+    background-color: #e48304;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    transition: background-color .5s, box-shadow 1s;
+    cursor: pointer;
+}
+
+.volver:hover{
+    background-color: #f0a23b;
+    box-shadow: 0 0 8px #ffad4e;
+}
+
+
+
+@keyframes mur{
+    0%{transform: translateY(100vh) scale(.4);}
+    100%{transform: translateY(-10vh) scale(1.15);}
+}
+
+
+@keyframes animate{
+    0%{transform: translateY(100vh) scale(0);}
+    100%{transform: translateY(-10vh) scale(1);}
+}
+
+@keyframes neon{
+    0%{filter: drop-shadow(0px 0px 5px rgb(252, 183, 36));}
+    100%{filter: drop-shadow(0px 0px 15px rgb(252, 183, 36)); }
+}
+
+@media screen and (max-width: 750px){
+    .cuatrocientos{
+        font-size: 7rem;
+    }
+
+    .notfound{
+        font-size: 1rem;
+    }
+
+    .ups{
+        font-size: 2rem;
+    }
+
+    .volver{
+        font-size: 1rem; 
+        padding: 10px 50px;
+    }
+
+    .bubbles span{
+        width: 20px;
+        height: 20px;
+        padding: 10px;
+    }
+
+    img{
+        width: 55px;
+        height: 55px;
+    }
+}
