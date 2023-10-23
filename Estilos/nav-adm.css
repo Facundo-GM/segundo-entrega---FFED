@@ -1,5 +1,5 @@
 .navbar{
-    background-color: rgb(29, 29, 30) !important;
+    background-color: #020106 !important;
     color: #fff !important;
 }
 
@@ -21,4 +21,7 @@
     color: #fff;
 }
 
-
+.nav-a{
+    text-decoration: none;
+    color: #fff;
+}
