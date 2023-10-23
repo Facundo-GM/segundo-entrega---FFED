@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Metal+Mania&display=swap');
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+.circular-square{
+    position: relative;
+    width: 304px;
+    height: 304px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 3px solid rgb(255, 185, 86);
+}
+
+.circular-square img {
+    width: 100%;
+    height: auto;
+}
+
+body{
+    min-height: 100vh;
+    background: #040305ec;
+}
+
+.contenedor{
+    min-height: 100vh;
+    background: url(https://static.vecteezy.com/system/resources/previews/027/645/279/non_2x/scary-halloween-background-halloween-horror-ultra-hd-generative-ai-free-photo.jpg) no-repeat center center fixed;
+    background-size: cover;
+    
+}
+
+.title-h1{
+    font-family: 'Metal Mania', sans-serif;
+    background-color: rgb(37, 37, 37);
+}
