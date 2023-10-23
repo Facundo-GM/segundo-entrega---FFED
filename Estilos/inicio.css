@@ -71,10 +71,6 @@ p{
     border-color: #fff;
     color: #fff;
 }
-body{
-    background-color: rgb(29, 29, 30);
-}
-
 
 .navbar :hover{
     color: #ffffff;
@@ -83,6 +79,21 @@ body{
 .text-center{
     color: #fff;
 }
+
 .form-label{
-    color: #fff;
-}
+    display: flex;
+    justify-content: center;
+        color:white-50;
+    }
+    .navbar{
+        display: flex;
+        max-width: 2000%;
+        height: 100vh;
+        background-image:url(https://i.pinimg.com/originals/b1/d9/b4/b1d9b4a6fa6e6601659c845e771feaaf.gif);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        
+    }
+    
+    
