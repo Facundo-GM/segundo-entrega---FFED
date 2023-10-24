@@ -72,8 +72,10 @@ p{
     color: #fff;
 }
 
-.navbar :hover{
+.navbar{
+    
     color: #ffffff;
+    justify-content: center;
 }
 
 .text-center{
@@ -83,7 +85,7 @@ p{
 .form-label{
     display: flex;
     justify-content: center;
-        color:white-50;
+        color:;
     }
     .navbar{
         display: flex;
@@ -96,4 +98,6 @@ p{
         
     }
     
-    
+    .form-control{
+        background-color: transparent;
+    }
