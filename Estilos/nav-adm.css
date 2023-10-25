@@ -1,5 +1,5 @@
 .navbar{
-    background-color: #020106 !important;
+    background-color: rgb(29, 29, 30) !important;
     color: #fff !important;
 }
 
@@ -24,4 +24,11 @@
 .nav-a{
     text-decoration: none;
     color: #fff;
+}
+
+.logo{
+    width: 170px;
+    height: 60px;
+    padding: 3px 0px;
+    margin-right: 10px;
 }
