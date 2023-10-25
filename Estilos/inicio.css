@@ -72,7 +72,10 @@ p{
     color: #fff;
 }
 
-.navbar :hover{
+.navbar {
+    background-color: #252525;
+    display: flex;
+    justify-content: center;
     color: #ffffff;
 }
 
@@ -83,7 +86,7 @@ p{
 .form-label{
     display: flex;
     justify-content: center;
-    color:white-50;
+    
 }
 .navbar{
     display: flex;
@@ -95,5 +98,25 @@ p{
     background-position: center;
         
 }
-    
-    
+.form-control{
+    background-color: transparent;
+}
+   
+.navbar-principal{
+    background-color:#252525 ;
+}
+.navbar-register{
+    display: flex;
+    max-width: 2000%;
+    height: 100vh;
+    background-image:url(https://cdn.dribbble.com/users/1579320/screenshots/3911527/dribble-3.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;  
+}
+.navbar-register{
+    background-color: #252525;
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+}
