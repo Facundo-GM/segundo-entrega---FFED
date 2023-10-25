@@ -1,0 +1,112 @@
+main{
+    width: 100vw;
+    height: 100vh;
+    
+}
+
+
+.pepe{
+    padding: 0;
+    margin: 0;
+}
+
+.izq{
+    background-color: rgb(30, 29, 29);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+    height: 100vh;
+    padding: 0;
+}
+
+.izq::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+#almacen{
+    padding-left: 30px;
+}
+
+.sombra{
+    width: 100%;
+    height: 150px;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(0deg, rgb(15, 15, 15) 30%, rgba(255,255,255,0) 100%);
+}
+
+.cuadricula {
+    color: #fff;
+    padding: 20px;
+    border: 1px groove gray;
+    border-radius: 5px;
+}
+
+.valor{
+    padding: 8px 20px;
+}
+
+.stock{
+    padding: 10px 13px;
+}
+
+.cambiarimg{
+    color: #fff;
+    text-align: center !important;
+    text-decoration: none;
+}
+
+.cuadricula:hover{
+    background-color: rgb(22, 22, 22);
+}
+
+.der{
+    background-image: url("https://cdn.dribbble.com/users/976874/screenshots/7906855/media/ed9fd12ba53b3a3f675f0be4815f1215.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.vidiro{
+    margin: 20px;
+    max-width: 50%;
+    max-height: 70%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.form-control{
+    background-color: rgba(240, 248, 255, 0) ;
+    border-color: rgb(233, 233, 233) ;
+    color: #fff;
+}
+
+.form-control::placeholder{
+    color: #fff;
+}
+
+.form-control:focus{
+    background-color: rgba(0, 0, 0, 0.19);
+    border-color: rgb(233, 233, 233) ;
+    color: #fff;
+}
+
+
+.form-check-input:not(:checked) {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+@media screen and (max-width:760px){
+    .vidiro{
+        max-width: 75%;
+        max-height: 85%;
+    }
+}
