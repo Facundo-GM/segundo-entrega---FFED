@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Metal+Mania&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
+
 *{
     margin: 0%;
     padding: 0%;
@@ -25,12 +27,19 @@ body{
 
 .contenedor{
     min-height: 100vh;
-    background: url(https://static.vecteezy.com/system/resources/previews/027/645/279/non_2x/scary-halloween-background-halloween-horror-ultra-hd-generative-ai-free-photo.jpg) no-repeat center center fixed;
+    background: url(../recursos/fondo-halloween-calabazas-aterradoras-velas-murcielagos-bosque-oscuro-noche.jpg) no-repeat center center fixed;
     background-size: cover;
     
 }
 
 .title-h1{
-    font-family: 'Metal Mania', sans-serif;
+    font-family: 'Nosifer', sans-serif;
     background-color: rgb(37, 37, 37);
+    color: rgb(255, 0, 0);
+}
+
+.text-p{
+    font-family: 'Metal Mania', sans-serif;
+    font-size: 25px;
+    color: rgb(158, 78, 4);
 }
