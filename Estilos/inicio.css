@@ -3,7 +3,7 @@
     padding: 0%;
 }
 body{
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Nosifer', sans-serif;
     padding: 0;
     margin: 0;
 }
@@ -35,12 +35,14 @@ span{
     letter-spacing: 2px;
     font-weight: 300;
 }
-h1{
+h1{ 
+    
     font-size: 32px;
     line-height: .9;
     padding-bottom:10px;
 }
-p{
+p{  
+    
     font-size: 15px;
     line-height: 1,2;
 
@@ -84,8 +86,10 @@ p{
 }
 
 .form-label{
+    font-family: 'Nosifer', sans-serif;
     display: flex;
     justify-content: center;
+    
     
 }
 .navbar{
