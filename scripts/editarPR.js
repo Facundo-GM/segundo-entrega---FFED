@@ -73,7 +73,9 @@ almecen.innerHTML +=
     `
 }
 
+let contador = 0;
 let arraycheck = [];
+let arrayimg = [];
 
 const pasarContenido = (objetoTag)=>{
     const inputCat = document.getElementById("input-cat");
@@ -89,8 +91,6 @@ const pasarContenido = (objetoTag)=>{
         checks.classList.add("d-none");
     }
 }
-
-const btnGuardar = document.getElementById("guardar");
 
 const checkS = document.getElementById("s");
 const checkL = document.getElementById("l");
@@ -111,11 +111,77 @@ const controlCheck = (check)=>{
 checkS.addEventListener("change",()=>controlCheck(checkS));
 checkL.addEventListener("change",()=>controlCheck(checkL));
 checkXLL.addEventListener("change",()=>controlCheck(checkXLL));
-/*
+
+
+const agregarImg = ()=>{
+    const zonaInpImg = document.getElementById("inp-img");
+    
+    contador++;
+   
+    if(contador <= 5){
+        /*
+        zonaInpImg.innerHTML += 
+        `
+        <input type="text" name="" id="" class="form-control my-3 entradaImg">
+        `*/
+        const nuevoCampo = document.createElement("input");
+        nuevoCampo.type = "text";
+        nuevoCampo.className = "form-control my-3 entradaImg";
+        zonaInpImg.appendChild(nuevoCampo);
+    }
+    
+}
+
+
+
+const guardarImg = ()=>{
+    let entradasImg = document.querySelectorAll(".entradaImg");
+    entradasImg.forEach((tag)=>{
+        arrayimg.push(tag.value);
+    })
+    console.log(arrayimg);
+}
+
+
+const btnGuardar = document.getElementById("guardar");
+
+
 btnGuardar.addEventListener("click",()=>{
     const name = document.getElementById("nombre");
+    const detalles = document.getElementById("detalles");
+    const inputCat = document.getElementById("input-cat");
     const price = document.getElementById("valor");
-    const  = document.getElementById("");
-    const  = document.getElementById("");
-    const  = document.getElementById("");
-})*/
+    const stock = document.getElementById("stock");
+
+    let objEditado = {}
+
+    if(inputCat.value != "Disfraces"){
+        console.log("si");
+        objEditado = {
+            id : url[1],
+            nombre : name.value,
+            detalles : detalles.value,
+            valor : price.value,
+            categoria : inputCat.value,
+            stock : stock.value,
+        }
+       
+    }
+    else{
+        console.log("no");
+        objEditado = {
+            id : url[1],
+            nombre : name.value,
+            detalles : detalles.value,
+            valor : price.value,
+            categoria : inputCat.value,
+            stock : stock.value,
+            talle : arraycheck
+        } 
+    }
+
+    pr.splice((url[1])-1,1,objEditado);
+    localStorage.setItem("-productos",JSON.stringify(pr));
+    location.reload();
+
+});
