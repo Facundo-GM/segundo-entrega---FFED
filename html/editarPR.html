@@ -24,34 +24,42 @@
         </div>
         <div class="col-12 col-md-8 d-flex justify-content-center align-items-center der">
             <div class="vidiro container-fluid d-flex flex-column justify-content-center align-items-center gap-5 py-5">
-                <input type="text" class="form-control" placeholder="Nombre">
-                <textarea cols="30" rows="1" class="form-control" placeholder="Detalles"></textarea>
-                <input type="text" class="form-control" placeholder="Estado">
-                <div class="d-flex gap-3">
-                    <input type="number" class="form-control" placeholder="Valor">
-                    <input type="number" class="form-control" placeholder="stock">
+                <input type="text" class="form-control" placeholder="Nombre" id="nombre">
+                <textarea cols="30" rows="1" class="form-control" placeholder="Detalles" id="detalles"></textarea>
+                <div class="dropdown w-100">
+                    <input type="text" class="form-control dropdown-toggle" placeholder="Categoria" data-bs-toggle="dropdown" aria-expanded="false" id="input-cat">
+                    <ul class="dropdown-menu">
+                        <li><p class="dropdown-item" onclick="pasarContenido(this)" >Maquillajes</p></li>
+                        <li><p class="dropdown-item" onclick="pasarContenido(this)" >Disfraces</p></li>
+                        <li><p class="dropdown-item" onclick="pasarContenido(this)" >Accesorios</p></li>
+                        <li><p class="dropdown-item" onclick="pasarContenido(this)" >Decoraciones</p></li>
+                    </ul>
                 </div>
-                <div class="d-flex gap-3">
+                <div class="d-flex gap-3 d-none" id="checks">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" value="s" id="s">
                         <label class="form-check-label text-light" for="flexCheckDefault">
                           S
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" value="l" id="l">
                         <label class="form-check-label text-light" for="flexCheckDefault">
                           L
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <input class="form-check-input" type="checkbox" value="xll" id="xll">
                         <label class="form-check-label text-light" for="flexCheckDefault">
                           XXL
                         </label>
                     </div>
                 </div>
-                
+                <div class="d-flex gap-3">
+                    <input type="number" class="form-control" placeholder="Valor" id="valor">
+                    <input type="number" class="form-control" placeholder="stock" id="stock">
+                </div>
+                <button type="button" class="btn btn-outline-secondary w-50" id="guardar">GUARDAR</button>
             </div>          
         </div>
     </main>

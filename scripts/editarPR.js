@@ -72,3 +72,50 @@ almecen.innerHTML +=
     </div>
     `
 }
+
+let arraycheck = [];
+
+const pasarContenido = (objetoTag)=>{
+    const inputCat = document.getElementById("input-cat");
+    const checks = document.getElementById("checks");
+
+    inputCat.value = objetoTag.textContent;
+    if(inputCat.value == "Disfraces"){
+        checks.classList.remove("d-none");
+        checks.classList.add("anicheck");
+    }
+    else{
+        checks.classList.remove("anicheck");
+        checks.classList.add("d-none");
+    }
+}
+
+const btnGuardar = document.getElementById("guardar");
+
+const checkS = document.getElementById("s");
+const checkL = document.getElementById("l");
+const checkXLL = document.getElementById("xll");
+
+const controlCheck = (check)=>{
+    
+    let existeTalle = arraycheck.some((talle)=>talle == check.value);
+
+    if(check.checked && !existeTalle){
+        
+        arraycheck.push(check.value);
+        console.log(arraycheck)
+    }
+    
+}
+
+checkS.addEventListener("change",()=>controlCheck(checkS));
+checkL.addEventListener("change",()=>controlCheck(checkL));
+checkXLL.addEventListener("change",()=>controlCheck(checkXLL));
+/*
+btnGuardar.addEventListener("click",()=>{
+    const name = document.getElementById("nombre");
+    const price = document.getElementById("valor");
+    const  = document.getElementById("");
+    const  = document.getElementById("");
+    const  = document.getElementById("");
+})*/
