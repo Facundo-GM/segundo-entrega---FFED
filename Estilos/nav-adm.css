@@ -1,29 +1,14 @@
 .navbar{
     background-color: rgb(29, 29, 30) !important;
-    color: #fff !important;
+    color:  rgb(255, 166, 0) !important;
 }
 
-.navbar :hover{
-    color: #ffffff;
+.nav-link:hover{
+    background:  black;
 }
-
-.nav-pills .nav-link.active{
-    background-color: rgb(255, 166, 0);
-}
-
-.nav-link{
-    color: aliceblue; 
-}
-
-.navbar-toggler{
-    background-color: rgb(162, 78, 0);
-    border-color: #fff;
-    color: #fff;
-}
-
 .nav-a{
     text-decoration: none;
-    color: #fff;
+    color:rgb(255, 166, 0);
 }
 
 .logo{

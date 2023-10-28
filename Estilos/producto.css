@@ -1,0 +1,78 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+hr{
+    margin: 0px;
+}
+
+.boton-prod{
+    border: none;
+    background-color: #FFFFFF;
+    color: rgb(245, 116, 24);
+}
+
+
+
+.boton-fav{
+    border: none;
+    background-color: #FFFFFF;
+}
+
+.boton-fav:hover{
+    color: red;
+}
+
+
+.boton-prod:hover {
+    background: rgb(0, 0, 0);
+    color: chocolate;
+} 
+
+.boton-prod1:hover{
+    background: rgb(0, 0, 0);
+    color: chocolate;
+}
+.linea-separacion{
+    border: 10px solid;
+}
+
+.title-h3{
+    display: block;
+    position:relative;
+}
+.title-h3::after, .title-h3::before{
+    content: "";
+    width: 600px;
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    top: 0.6em;
+}
+
+.title-h3::before{
+    left:5px;
+}
+
+.title-h3::after{
+    right: 5px;
+}
+
+.commit-1{
+    width: 350px;
+}
+
+.star{
+    font-size: 20px;
+    transition: color 0.3s;
+    cursor: pointer;
+    
+}
+
+.star:hover,
+.star.checked{
+    color: gold;
+    
+}
