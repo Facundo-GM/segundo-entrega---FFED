@@ -1,0 +1,19 @@
+.logo{
+    width: 170px;
+    height: 60px;
+    padding: 3px 0px;
+    margin-right: 10px;
+}
+
+.nav-link{
+    color: rgb(255, 166, 0);
+}
+
+.nav-link:hover{
+    color: rgb(255, 166, 0);
+    background-color: black;
+}
+
+.navbar{
+    background-color: #1D1D1E !important;
+}
