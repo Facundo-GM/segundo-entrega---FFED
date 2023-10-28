@@ -77,6 +77,18 @@ let contador = 0;
 let arraycheck = [];
 let arrayimg = [];
 
+const validar = (tag)=>{
+    
+    if (tag.value == "") {
+        tag.classList.add("is-invalid");
+    } 
+
+    if(tag.value != ""){
+        tag.classList.remove("is-invalid");
+        tag.classList.add("is-valid");
+    }
+}
+
 const pasarContenido = (objetoTag)=>{
     const inputCat = document.getElementById("input-cat");
     const checks = document.getElementById("checks");
@@ -98,6 +110,15 @@ const checkXLL = document.getElementById("xll");
 
 const controlCheck = (check)=>{
     
+    if (!check.checked) {
+        check.classList.add("is-invalid");
+    } 
+
+    if(check.checked){
+        check.classList.remove("is-invalid");
+        check.classList.add("is-valid");
+    }
+
     let existeTalle = arraycheck.some((talle)=>talle == check.value);
 
     if(check.checked && !existeTalle){
@@ -105,6 +126,8 @@ const controlCheck = (check)=>{
         arraycheck.push(check.value);
         console.log(arraycheck)
     }
+
+   
     
 }
 
@@ -125,8 +148,9 @@ const agregarImg = ()=>{
         <input type="text" name="" id="" class="form-control my-3 entradaImg">
         `*/
         const nuevoCampo = document.createElement("input");
+        nuevoCampo.placeholder = "URL de la Imagen"
         nuevoCampo.type = "text";
-        nuevoCampo.className = "form-control my-3 entradaImg";
+        nuevoCampo.className = "form-control my-3 anicheck entradaImg";
         zonaInpImg.appendChild(nuevoCampo);
     }
     
@@ -137,51 +161,79 @@ const agregarImg = ()=>{
 const guardarImg = ()=>{
     let entradasImg = document.querySelectorAll(".entradaImg");
     entradasImg.forEach((tag)=>{
-        arrayimg.push(tag.value);
-    })
+        validar(tag);
+        if(tag.value != ""){
+            arrayimg.push(tag.value);
+        } 
+    });
+    if(arrayimg.length == 0){
+        alert("pelotudo")
+    }
     console.log(arrayimg);
 }
 
 
+
+
+
 const btnGuardar = document.getElementById("guardar");
+
+const name = document.getElementById("nombre");
+const detalles = document.getElementById("detalles");
+const inputCat = document.getElementById("input-cat");
+const price = document.getElementById("valor");
+const stock = document.getElementById("stock");
 
 
 btnGuardar.addEventListener("click",()=>{
-    const name = document.getElementById("nombre");
-    const detalles = document.getElementById("detalles");
-    const inputCat = document.getElementById("input-cat");
-    const price = document.getElementById("valor");
-    const stock = document.getElementById("stock");
+    
+
+    validar(name);
+    validar(detalles);
+    validar(inputCat);
+    validar(price);
+    validar(stock);
 
     let objEditado = {}
 
-    if(inputCat.value != "Disfraces"){
-        console.log("si");
-        objEditado = {
-            id : url[1],
-            nombre : name.value,
-            detalles : detalles.value,
-            valor : price.value,
-            categoria : inputCat.value,
-            stock : stock.value,
+    if(name.value != "" && detalles.value != "" && 
+    inputCat.value != "" && price.value != "" && 
+    stock.value != "" && arrayimg.length > 0){
+        console.log("llegue")
+        if(inputCat.value != "Disfraces"){
+            console.log("si");
+            objEditado = {
+                id : url[1],
+                nombre : name.value,
+                detalles : detalles.value,
+                valor : price.value,
+                categoria : inputCat.value,
+                imagenes : arrayimg,
+                stock : stock.value,
+            }
+           
         }
-       
+        else{
+            console.log("no");
+            objEditado = {
+                id : url[1],
+                nombre : name.value,
+                detalles : detalles.value,
+                valor : price.value,
+                categoria : inputCat.value,
+                imagenes : arrayimg,
+                stock : stock.value,
+                talle : arraycheck
+            } 
+        }
+
+        pr.splice((url[1])-1,1,objEditado);
+        localStorage.setItem("-productos",JSON.stringify(pr));
+        location.reload();
     }
     else{
-        console.log("no");
-        objEditado = {
-            id : url[1],
-            nombre : name.value,
-            detalles : detalles.value,
-            valor : price.value,
-            categoria : inputCat.value,
-            stock : stock.value,
-            talle : arraycheck
-        } 
+        alert("compl")
     }
 
-    pr.splice((url[1])-1,1,objEditado);
-    localStorage.setItem("-productos",JSON.stringify(pr));
-    location.reload();
-
 });
+
