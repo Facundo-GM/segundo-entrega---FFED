@@ -1,82 +1,8 @@
-let url = location.href;
-url = url.split("=");
 
-const almecen = document.getElementById("almacen")
 const pr = JSON.parse(localStorage.getItem("-productos"));
 
-
-const elemento = pr.find((pr)=> pr.id == url[1]);
-console.log(elemento);
-
-if("talle" in elemento){
-almecen.innerHTML += 
-`
-    <div class="d-flex gap-3">
-        <p class="text-light">Nombre:</p>
-        <p class="cuadricula">${elemento.nombre}</p>
-    </div>
-    <div class="d-flex gap-3">
-        <p class="text-light">Categoria:</p>
-        <p class="cuadricula">${elemento.categoria}</p>
-    </div>
-    <div class="d-flex gap-3">
-        <p class="text-light">Detalles:</p>
-        <p class="cuadricula">${elemento.detalles}</p>
-    </div>
-    <div class="d-flex gap-3">
-        <p class="text-light">Valor:</p>
-        <p class="cuadricula valor">${elemento.valor}$</p>
-    </div>
-    <div class="d-flex gap-3">
-        <p class="text-light">Stock:</p>
-        <p class="cuadricula stock">${elemento.stock}</p>
-    </div>
-    <div class="d-flex gap-3">
-        <p class="text-light">Talles:</p>
-        <div class="d-flex gap-3">
-        ${elemento.talle.map(talle => `<p class="cuadricula stock">${talle}</p>`).join('')}
-        </div>
-    </div>
-    <div class="d-flex gap-3">
-        <p class="text-light">Imagenes:</p>
-        <div class="d-flex flex-wrap gap-3">
-        ${elemento.imagenes.map(img => `<img class="miniatura" src="${img}">`).join('')}
-        </div>
-    </div>
-`
-}else{
-
-almecen.innerHTML += 
-    `
-    <div class="d-flex gap-3 ">
-        <p class="text-light">Nombre:</p>
-        <p class="cuadricula">${elemento.nombre}</p>
-    </div>
-    <div class="d-flex gap-3">
-        <p class="text-light">Categoria:</p>
-        <p class="cuadricula">${elemento.categoria}</p>
-    </div>
-    <div class="d-flex gap-3">
-        <p class="text-light">Detalles:</p>
-        <p class="cuadricula">${elemento.detalles}</p>
-    </div>
-    <div class="d-flex gap-3">
-        <p class="text-light">Valor:</p>
-        <p class="cuadricula valor">${elemento.valor}$</p>
-    </div>
-    <div class="d-flex gap-3">
-        <p class="text-light">Stock:</p>
-        <p class="cuadricula stock">${elemento.stock}</p>
-    </div>
-    <div class="d-flex gap-3">
-        <p class="text-light">Imagenes:</p>
-        <div class="d-flex flex-wrap gap-3">
-        ${elemento.imagenes.map(img => `<img class="miniatura" src="${img}">`).join('')}
-        </div>
-    </div>
-    `
-}
-
+const ultimoID = pr[(pr.length)-1].id;
+console.log(ultimoID);
 let contador = 0;
 let arraycheck = [];
 let arrayimg = [];
@@ -104,6 +30,7 @@ const validar = (tag)=>{
         tag.classList.remove("is-invalid");
         tag.classList.add("is-valid");
     }
+    
 }
 
 const validarCheck = (check)=>{
@@ -169,11 +96,6 @@ const agregarImg = ()=>{
     contador++;
    
     if(contador <= 5){
-        /*
-        zonaInpImg.innerHTML += 
-        `
-        <input type="text" name="" id="" class="form-control my-3 entradaImg">
-        `*/
         const nuevoCampo = document.createElement("input");
         nuevoCampo.placeholder = "URL de la Imagen"
         nuevoCampo.type = "text";
@@ -240,7 +162,7 @@ btnGuardar.addEventListener("click",()=>{
         completaElCampo();
     }
 
-    let objEditado = {}
+    let objCreado = {}
 
     if(name.value != "" && detalles.value != "" && 
     inputCat.value != "" && price.value != "" && 
@@ -248,8 +170,8 @@ btnGuardar.addEventListener("click",()=>{
         console.log("llegue")
         if(inputCat.value == "Disfraces" && arraycheck.length > 0){
             console.log("si");
-            objEditado = {
-                id : url[1],
+            objCreado = {
+                id : ultimoID + 1,
                 nombre : name.value,
                 detalles : detalles.value,
                 valor : price.value,
@@ -258,16 +180,27 @@ btnGuardar.addEventListener("click",()=>{
                 stock : stock.value,
                 talle : arraycheck
             }
-            pr.splice((url[1])-1,1,objEditado);
+            pr.push(objCreado);
             localStorage.setItem("-productos",JSON.stringify(pr));
-            location.reload();
+
+            Swal.fire({
+                position: 'center-center',
+                icon: 'success',
+                title: '¡Producto Creado!',
+                showConfirmButton: false,
+                timer: 3000
+            });
+
+            setTimeout(()=>{
+                location.href = "adm-tablas.html";
+            },3000);
         }
         else if(inputCat.value == "Disfraces" && arraycheck.length  == 0){
         }
         else{
             console.log("no");
-            objEditado = {
-                id : url[1],
+            objCreado = {
+                id : ultimoID + 1,
                 nombre : name.value,
                 detalles : detalles.value,
                 valor : price.value,
@@ -275,9 +208,20 @@ btnGuardar.addEventListener("click",()=>{
                 imagenes : arrayimg,
                 stock : stock.value,
             }
-            pr.splice((url[1])-1,1,objEditado);
+            pr.push(objCreado);
             localStorage.setItem("-productos",JSON.stringify(pr));
-            location.reload();
+
+            Swal.fire({
+                position: 'center-center',
+                icon: 'success',
+                title: '¡Producto Creado!',
+                showConfirmButton: false,
+                timer: 3000
+            });
+
+            setTimeout(()=>{
+                location.href = "adm-tablas.html";
+            },3000);
         }
     }
     else{
@@ -285,4 +229,3 @@ btnGuardar.addEventListener("click",()=>{
     }
 
 });
-

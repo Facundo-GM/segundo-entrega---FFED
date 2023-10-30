@@ -168,6 +168,6 @@ const productos = [
 
 const existProduct = JSON.parse(localStorage.getItem("-productos")) || [];
 
-if(existProduct.length = 0){
+if(existProduct.length == 0){
     localStorage.setItem("-productos",JSON.stringify(productos));
 }
