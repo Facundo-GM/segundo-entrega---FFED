@@ -1,0 +1,44 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer{
+    margin-top: auto;
+}
+.f-back{
+    background-color: #1D1D1E !important;
+}
+
+.a-footer {
+    text-decoration: none;
+    color: rgb(255, 166, 0);
+}
+
+.linea-separacion1{
+    border: 1px solid white;
+}
+
+.footer-p{
+    color: rgb(255, 166, 0);
+}
+
+
+.boton-face:hover{
+    color: blue;
+}
+
+.boton-insta:hover{
+    color: blueviolet;
+}
+
+.boton-twi:hover{
+    color: lightskyblue;
+}
+
+.boton-you:hover{
+    color: red;
+}
+
+
