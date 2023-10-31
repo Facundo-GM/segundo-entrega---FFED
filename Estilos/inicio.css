@@ -10,7 +10,7 @@ body{
 .contenedor{
     display: flex;
     max-width: 2000%;
-    height: 100vh;
+    height: 90vh;
     background-image: url(https://4.bp.blogspot.com/-C397wspfxY8/UI3EVhzuRFI/AAAAAAABNHI/ePCHIcRZe_g/s1600/imagenes-para-la-fiesta-de-halloween-2012---16.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -72,47 +72,42 @@ p{
     color: #fff;
 }
 
-.navbar {
-    background-color: #252525;
-    display: flex;
-    justify-content: center;
-    color: #ffffff;
-}
 
 .text-center{
     color: #fff;
+   
 }
 
 .form-label{
-    display: flex;
+    display:flex;
     justify-content: center;
-    
+    color: #fff;
 }
-.navbar{
+.nav-main{
     display: flex;
     max-width: 2000%;
-    height: 100vh;
+    height: 90vh ;
     background-image:url(https://i.pinimg.com/originals/b1/d9/b4/b1d9b4a6fa6e6601659c845e771feaaf.gif);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-        
+    display: flex;
+     justify-content: center;
 }
 .form-control{
     background-color: transparent;
 }
-   
-.navbar-principal{
-    background-color:#252525 ;
-}
+
+
 .navbar-register{
     display: flex;
     max-width: 2000%;
-    height: 100vh;
+    height: 90vh ;
     background-image:url(https://cdn.dribbble.com/users/1579320/screenshots/3911527/dribble-3.gif);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;  
+    background-position: center;
+   
 }
 .navbar-register{
     background-color: #252525;
@@ -120,3 +115,4 @@ p{
     justify-content: center;
     color: #ffffff;
 }
+
