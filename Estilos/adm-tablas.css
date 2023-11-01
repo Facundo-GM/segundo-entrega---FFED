@@ -10,3 +10,31 @@ body{
     margin-bottom: 80px;
 }
 
+.destacar{
+    cursor: pointer;
+    color: rgb(188, 188, 188);
+    font-size: 1.2rem;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.destacar:hover{
+    color: rgb(255, 89, 0);
+    text-shadow: 0px 0px 10px rgb(183, 65, 2);
+}
+
+.colorStar{
+    color: rgb(255, 89, 0);
+    text-shadow: 0px 0px 10px rgb(183, 65, 2);
+}
+
+@media screen and (max-width:410px){
+    .opciones{
+        flex-direction: column;
+    }
+    .center{
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

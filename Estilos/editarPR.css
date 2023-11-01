@@ -5,7 +5,7 @@ main{
 }
 
 
-.pepe{
+.row{
     padding: 0;
     margin: 0;
 }
@@ -27,6 +27,10 @@ main{
 
 #almacen{
     padding-left: 30px;
+}
+
+#almacen div .text-light{
+    width: 72px;
 }
 
 .sombra{
@@ -111,12 +115,7 @@ main{
     background-color: rgba(255, 255, 255, 0);
 }
 
-@media screen and (max-width:760px){
-    .vidiro{
-        max-width: 75%;
-        max-height: 85%;
-    }
-}
+
 
 
 .anicheck{
@@ -159,4 +158,57 @@ main{
     50%{transform: translateX(-8px);}
     75%{transform: translateX(8px);}
     100%{transform: translateX(0px);}
+}
+
+.phAdv::placeholder{
+    color: rgb(242, 132, 132);
+}
+
+@media screen and (max-width:1315px){
+    .phAdv::placeholder{
+        font-size: .8rem;
+    }
+}
+
+@media screen and (max-width:1085px){
+    .phAdv::placeholder{
+        font-size: .6rem;
+    }
+    #almacen{
+        padding: 0;
+    }
+    #almacen div:nth-child(3){
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:760px){
+    .vidiro{
+        max-width: 75%;
+        max-height: 85%;
+    }
+    .phAdv::placeholder{
+        font-size: 1rem;
+    }
+    #almacen{
+        padding-left: 30px;
+    }
+}
+
+@media screen and (max-width:580px){
+    .phAdv::placeholder{
+        font-size: .8rem;
+    }
+}
+
+@media screen and (max-width:495px){
+    .phAdv::placeholder{
+        font-size: .6rem;
+    }
+}
+
+@media screen and (max-width:350px){
+    .phAdv::placeholder{
+        font-size: .45rem;
+    }
 }

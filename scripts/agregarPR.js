@@ -2,8 +2,9 @@
 const pr = JSON.parse(localStorage.getItem("-productos"));
 
 const ultimoID = pr[(pr.length)-1].id;
-console.log(ultimoID);
+
 let contador = 0;
+let contadorValid = 0;
 let arraycheck = [];
 let arrayimg = [];
 let indDiz = false;
@@ -21,16 +22,63 @@ const completaElCampo = ()=>{
 }
 
 const validar = (tag)=>{
+
+    const placeholderBase = tag.placeholder;
+
+    const patron = /^[A-Za-z0-9]+$/;
+    const patronNumerico = /^[0-9]+$/;
     
     if (tag.value == "") {
         tag.classList.add("is-invalid");
+        tag.placeholder = placeholderBase;
     } 
 
     if(tag.value != ""){
         tag.classList.remove("is-invalid");
         tag.classList.add("is-valid");
     }
+
     
+    if (!patron.test(tag.value) && (tag.id != "valor" && tag.id != "stock") && tag.name != "imgInput") {
+        if (tag.value == "") {
+            tag.placeholder = placeholderBase;
+        }
+        else{
+            tag.classList.add("is-invalid");
+            tag.value = "";
+            tag.classList.add("phAdv");
+            tag.placeholder = "El campo no debe contener caracteres especiales";
+            setTimeout(()=>{
+                tag.placeholder = placeholderBase;
+                tag.classList.remove("phAdv");
+            },4000);
+        }
+        
+    } else {
+        if (!patronNumerico.test(tag.value) && (tag.id == "valor" && tag.id == "stock")){
+            if (tag.value == "") {
+                tag.placeholder = placeholderBase;
+            }
+            else{
+                tag.classList.add("is-invalid");
+                tag.value = "";
+                tag.classList.add("phAdv");
+                tag.placeholder = "Solo numeros";
+                setTimeout(()=>{
+                    tag.placeholder = placeholderBase;
+                    tag.classList.remove("phAdv");
+                },4000);
+            }
+        }
+    }
+
+    if(patron.test(tag.value) || patronNumerico.test(tag.value)){
+        contadorValid++
+    }
+    else{
+        contadorValid = 0;
+    }
+    console.log(contadorValid);
 }
 
 const validarCheck = (check)=>{
@@ -99,6 +147,7 @@ const agregarImg = ()=>{
         const nuevoCampo = document.createElement("input");
         nuevoCampo.placeholder = "URL de la Imagen"
         nuevoCampo.type = "text";
+        nuevoCampo.name = "imgInput"
         nuevoCampo.className = "form-control my-3 anicheck entradaImg";
         zonaInpImg.appendChild(nuevoCampo);
     }
@@ -122,7 +171,7 @@ const guardarImg = ()=>{
         setTimeout(()=>{
             txtImg.classList.remove("txtCompletar");
             txtImg.classList.add("d-none");
-        },5000);
+        },6000);
     }
 }
 
@@ -166,7 +215,7 @@ btnGuardar.addEventListener("click",()=>{
 
     if(name.value != "" && detalles.value != "" && 
     inputCat.value != "" && price.value != "" && 
-    stock.value != "" && arrayimg.length > 0){
+    stock.value != "" && arrayimg.length > 0 && contadorValid >= 5){
         console.log("llegue")
         if(inputCat.value == "Disfraces" && arraycheck.length > 0){
             console.log("si");
