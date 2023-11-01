@@ -10,3 +10,18 @@ body{
     margin-bottom: 80px;
 }
 
+.star{
+    cursor: pointer;
+}
+
+@media screen and (max-width:410px){
+    .opciones{
+        flex-direction: column;
+    }
+    .center{
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
