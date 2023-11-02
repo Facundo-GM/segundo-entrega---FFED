@@ -173,7 +173,81 @@ if(existProduct.length == 0){
 }
 
 
+const usuariosPred = [
+    {
+        id : 1,
+        mail : "mail",
+        usuario : "user",
+        contrasenia : "user",
+        role : "user",
+        log : false,
+        permisos :{
+            editarUS : false,
+            editarADM : false,
+        }
+    },
+    {
+        id : 2,
+        mail : "mail",
+        usuario : "adm",
+        contrasenia : "adm",
+        role : "adm",
+        log : false,
+        permisos :{
+            editarUS : true,
+            editarADM : false,
+        }
+    },
+    {
+        id : 3,
+        mail : "mail",
+        usuario : "titular",
+        contrasenia : "titular",
+        role : "adm",
+        log : false,
+        permisos :{
+            editarUS : true,
+            editarADM : true,
+        }
+    },
+    {
+        id : 5,
+        mail : "mail",
+        usuario : "user",
+        contrasenia : "user",
+        role : "user",
+        log : false,
+        permisos :{
+            editarUS : false,
+            editarADM : false,
+        }
+    },
+    {
+        id : 6,
+        mail : "mail",
+        usuario : "user",
+        contrasenia : "user",
+        role : "user",
+        log : false,
+        permisos :{
+            editarUS : false,
+            editarADM : false,
+        }
+    },
+    
+]
 
+const existUsers = JSON.parse(localStorage.getItem("--usuarios")) || [];
+
+if(existUsers.length == 0){
+    localStorage.setItem("--usuarios",JSON.stringify(usuariosPred));
+}
+
+localStorage.setItem("--user",JSON.stringify(usuariosPred[2]));
+
+
+
+/*codigo de david*/
 const productCardsContainer = document.getElementById("productCards");
 
 productos.forEach(producto => {   // Recorre el array de productos y crea una tarjeta para cada uno
@@ -201,8 +275,4 @@ productos.forEach(producto => {   // Recorre el array de productos y crea una ta
     // Agrega la tarjeta al contenedor
     productCardsContainer.appendChild(card);
 });
-
-
-
-
 
