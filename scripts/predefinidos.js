@@ -179,7 +179,7 @@ const usuariosPred = [
         usuario : "user",
         contrasenia : "user",
         role : "user",
-        log : "false",
+        log : false,
         permisos :{
             editarUS : false,
             editarADM : false,
@@ -191,7 +191,7 @@ const usuariosPred = [
         usuario : "adm",
         contrasenia : "adm",
         role : "adm",
-        log : "false",
+        log : false,
         permisos :{
             editarUS : true,
             editarADM : false,
@@ -203,7 +203,7 @@ const usuariosPred = [
         usuario : "titular",
         contrasenia : "titular",
         role : "adm",
-        log : "false",
+        log : false,
         permisos :{
             editarUS : true,
             editarADM : true,
@@ -215,7 +215,7 @@ const usuariosPred = [
         usuario : "user",
         contrasenia : "user",
         role : "user",
-        log : "false",
+        log : false,
         permisos :{
             editarUS : false,
             editarADM : false,
@@ -227,7 +227,7 @@ const usuariosPred = [
         usuario : "user",
         contrasenia : "user",
         role : "user",
-        log : "false",
+        log : false,
         permisos :{
             editarUS : false,
             editarADM : false,

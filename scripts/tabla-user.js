@@ -16,6 +16,7 @@ if(usuarios.length > 0){
                     <th scope="row">${sujeto.id}</th>
                     <td>${sujeto.usuario}</td>
                     <td>${sujeto.mail}</td>
+                    <td>${sujeto.role == "user" ? "Usuario" : "Administrador"}</td>
                     <td>
                         <div class="d-flex gap-3 opciones">
                             <a href="../html/editarUS.html?=${sujeto.id}"><button type="button" class="btn btn-outline-warning">Editar</button></a>
@@ -39,6 +40,7 @@ if(usuarios.length > 0){
                     <th scope="row">${sujeto.id}</th>
                     <td>${sujeto.usuario}</td>
                     <td>${sujeto.mail}</td>
+                    <td>${sujeto.role == "user" ? "Usuario" : "Administrador"}</td>
                     <td>
                         <div class="d-flex gap-3 opciones">
                             <a href="../html/editarUS.html?=${sujeto.id}"><button type="button" class="btn btn-outline-warning">Editar</button></a>
