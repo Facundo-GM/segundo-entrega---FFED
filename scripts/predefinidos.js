@@ -6,7 +6,7 @@ const productos = [
         detalles: "Añade un toque espeluznante a tu disfraz de Halloween con esta sangre roja artificial. Perfecta para simular heridas, cortes y escenas terroríficas. Esta sangre de alta calidad es ideal para maquillajes de terror y efectos especiales.",
         valor: 1000,
         categoria: "Maquillajes",
-        imagenes: ["https://bazarani.com/23497-large_default/sangre-artificial-de-283-mililitros-de-color-rojo.jpg","https://m.media-amazon.com/images/I/71xFmWwK+XL.jpg"],
+        imagenes: ["https://http2.mlstatic.com/D_NQ_NP_992734-MLA71481156852_092023-O.webp"],
         stock: 23,
         estado: "disponible"
     },
@@ -171,3 +171,38 @@ const existProduct = JSON.parse(localStorage.getItem("-productos")) || [];
 if(existProduct.length == 0){
     localStorage.setItem("-productos",JSON.stringify(productos));
 }
+
+
+
+const productCardsContainer = document.getElementById("productCards");
+
+productos.forEach(producto => {   // Recorre el array de productos y crea una tarjeta para cada uno
+    
+    const card = document.createElement("div");  // Crea un elemento de tarjeta div y configura su contenido
+    card.classList.add("product-card"); // Puedes agregar estilos CSS según tus necesidades
+    card.innerHTML = `
+        
+        
+
+        <div class="card" style="width: 50%;">
+            <h2>${producto.nombre}</h2>
+            <img src="${producto.imagenes}" class="card-img-top" alt="${producto.nombre}">
+            <div class="card-body">
+                <p class="card-text">${producto.detalles}</p>
+                <h3>Precio: $${producto.valor}</h3>
+                <p>Stock: $${producto.stock}</p>
+            </div>
+        </div>
+
+
+
+    `;
+
+    // Agrega la tarjeta al contenedor
+    productCardsContainer.appendChild(card);
+});
+
+
+
+
+
