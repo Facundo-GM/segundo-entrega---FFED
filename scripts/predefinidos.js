@@ -6,7 +6,7 @@ const productos = [
         detalles: "Añade un toque espeluznante a tu disfraz de Halloween con esta sangre roja artificial. Perfecta para simular heridas, cortes y escenas terroríficas. Esta sangre de alta calidad es ideal para maquillajes de terror y efectos especiales.",
         valor: 1000,
         categoria: "Maquillajes",
-        imagenes: ["https://bazarani.com/23497-large_default/sangre-artificial-de-283-mililitros-de-color-rojo.jpg","https://m.media-amazon.com/images/I/71xFmWwK+XL.jpg"],
+        imagenes: ["https://http2.mlstatic.com/D_NQ_NP_992734-MLA71481156852_092023-O.webp"],
         stock: 23,
         estado: "disponible"
     },
