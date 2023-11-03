@@ -15,7 +15,6 @@ errorUsuario.classList.add("d-none");
 errorContrasenia.classList.add("d-none");
 
 
-
 const cambioInputs=(evento)=>{
     objUsuario[evento.target.name] = evento.target.value;
     if(evento.target.name === "usuario" && evento.target.value !== ""){
@@ -47,5 +46,4 @@ const cambioInputs=(evento)=>{
  };
 inputContrasenia.addEventListener("input",cambioInputs);
 inputUsuario.addEventListener("input",cambioInputs);
-
 inputIniciar.addEventListener("click",enviarIniciar);
