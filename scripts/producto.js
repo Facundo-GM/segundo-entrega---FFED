@@ -3,6 +3,42 @@ const products=JSON.parse(localStorage.getItem("-productos"))
 const idProduct = location.search.split("=")[1];
 const filterProduct = products.filter((prod)=> prod.id === Number(idProduct))
 const divProduct =document.getElementById("divProduct")
+const thumb = slider.querySelector('.thumb');
+
+thumb.onmousedown = function(event) {
+  event.preventDefault(); // evita el inicio de la selección (acción del navegador)
+
+  let shiftX = event.clientX - thumb.getBoundingClientRect().left;
+  // shiftY no es necesario, el dedo se mueve solo horizontalmente
+
+  document.addEventListener('mousemove', onMouseMove);
+  document.addEventListener('mouseup', onMouseUp);
+
+  function onMouseMove(event) {
+  const newLeft   = event.clientX - shiftX - slider.getBoundingClientRect().left;
+
+    // el puntero está fuera del slider => bloquear el dedo dentro de los límites
+    if (newLeft < 0) {
+      newLeft = 0;
+    }
+    let rightEdge = slider.offsetWidth - thumb.offsetWidth;
+    if (newLeft > rightEdge) {
+      newLeft = rightEdge;
+    }
+
+    thumb.style.left = newLeft + 'px';
+  }
+
+  function onMouseUp() {
+    document.removeEventListener('mouseup', onMouseUp);
+    document.removeEventListener('mousemove', onMouseMove);
+  }
+
+};
+
+thumb.ondragstart = function() {
+  return false;
+};
 
 
 stars.forEach(function (star, index) {
@@ -225,3 +261,4 @@ const addFav = async (id) => {
            location.href="../html/iniciar sesion.html"
        }
 }
+
