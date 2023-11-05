@@ -55,5 +55,4 @@ console.log(objUsuario)
 
 inputContrasenia.addEventListener("input",cambioInputs);
 inputUsuario.addEventListener("input",cambioInputs);
-
 inputIniciar.addEventListener("click",enviarIniciar);
