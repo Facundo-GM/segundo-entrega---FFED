@@ -166,43 +166,48 @@ const productos = [
     }
 ];
 
-const existProduct = JSON.parse(localStorage.getItem("-productos")) || [];
+const existProduct = JSON.parse(localStorage.getItem(productos)) || [];
 
 if(existProduct.length == 0){
-    localStorage.setItem("-productos",JSON.stringify(productos));
+    localStorage.setItem(productos,JSON.stringify(productos));
 }
 
 
 
-const productCardsContainer = document.getElementById("productCards");
+const productCardsContainer = document.getElementById("productCards"); //En esta línea, se obtiene una referencia al elemento HTML con el ID "productCards" y se almacena en la variable productCardsContainer. Esto se utiliza para posteriormente agregar las tarjetas de productos al contenedor.
 
-productos.forEach(producto => {   // Recorre el array de productos y crea una tarjeta para cada uno
+productos.forEach(producto => {   // Aquí comienza un bucle forEach que recorrerá un array llamado productos, el cual se supone que contiene objetos que representan productos.
     
-    const card = document.createElement("div");  // Crea un elemento de tarjeta div y configura su contenido
-    card.classList.add("product-card"); // Puedes agregar estilos CSS según tus necesidades
-    card.innerHTML = `
+    const card = document.createElement("div");  // Dentro del bucle, se crea un nuevo elemento HTML div y se almacena en la variable card. Este div se utilizará como el contenedor de cada tarjeta de producto.
+    //card.classList.add("cardProduct"); // Se agrega la clase CSS "product-card" al elemento div creado en la línea anterior. Esto le dará un estilo específico a las tarjetas de productos.
+    card.innerHTML = ` 
         
         
 
-        <div class="card" style="width: 50%;">
-            <h2>${producto.nombre}</h2>
-            <img src="${producto.imagenes}" class="card-img-top" alt="${producto.nombre}">
-            <div class="card-body">
-                <p class="card-text">${producto.detalles}</p>
-                <h3>Precio: $${producto.valor}</h3>
-                <p>Stock: $${producto.stock}</p>
+        <div class="card h-100 d-flex" style="width: 95%;">
+            
+            <div class="title-div">
+            <h3>${producto.nombre}</h3>
             </div>
+            <div class="contenedor-div">
+            <img src="${producto.imagenes}" class="card-img-top square-image" alt="${producto.nombre}">
+            </div>
+
+                <div class="card-body">
+           
+                    <h3>Precio: $${producto.valor}</h3>
+
+                    <a href="../html/producto.html?id=${producto.id}" class="btn btn-primary botonGoClass">
+                    Ver Mas</a>
+                    <button class='btn btn-success' onclick="addCart(${producto.id})">Añadir al Carrito</button>
+
+                </div>
         </div>
-
-
 
     `;
 
-    // Agrega la tarjeta al contenedor
+     // Agrega la tarjeta al contenedor
     productCardsContainer.appendChild(card);
 });
-
-
-
 
 
