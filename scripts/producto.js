@@ -6,10 +6,10 @@ const divProduct =document.getElementById("divProduct")
 const thumb = slider.querySelector('.thumb');
 
 thumb.onmousedown = function(event) {
-  event.preventDefault(); // evita el inicio de la selección (acción del navegador)
+  event.preventDefault();  
 
   let shiftX = event.clientX - thumb.getBoundingClientRect().left;
-  // shiftY no es necesario, el dedo se mueve solo horizontalmente
+  
 
   document.addEventListener('mousemove', onMouseMove);
   document.addEventListener('mouseup', onMouseUp);
@@ -17,7 +17,7 @@ thumb.onmousedown = function(event) {
   function onMouseMove(event) {
   const newLeft   = event.clientX - shiftX - slider.getBoundingClientRect().left;
 
-    // el puntero está fuera del slider => bloquear el dedo dentro de los límites
+    
     if (newLeft < 0) {
       newLeft = 0;
     }
@@ -57,7 +57,7 @@ divProduct.innerHTML=filterProduct.map((producto)=>
 <div id="carouselExampleFade" class="carousel slide carousel-fade">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="${producto.imagenes}"
+      <img src="${producto.imagenes[0]}"
         class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
