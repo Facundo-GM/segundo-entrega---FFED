@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../Estilos/nav-user.css">
     <link rel="stylesheet" href="../Estilos/footer.css">
+    <link rel="stylesheet" href="../Estilos/favoritos.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
@@ -23,10 +24,10 @@
               <button type="button" class="btn btn-outline-dark nav-link"> <a class="nav-link" aria-current="page" href="./usuario.html">Inicio</a></button>
             </li>
             <li class="nav-item">
-              <button type="button" class="btn btn-outline-dark nav-link"> <a class="nav-link" aria-current="page" href="./sobreNosotros.html">Sobre Nosotros</a></button>
+              <button type="button" class="btn btn-outline-dark nav-link"> <a class="nav-link" aria-current="page" href="./sobreNosotrosUser.html">Sobre Nosotros</a></button>
             </li>
             <li class="nav-item">
-              <button type="button" class="btn btn-outline-dark nav-link"> <a class="nav-link" aria-current="page" href="./contacto.html">Contacto</a></button>
+              <button type="button" class="btn btn-outline-dark nav-link"> <a class="nav-link" aria-current="page" href="./contactoUser.html">Contacto</a></button>
             </li>
             <li class="nav-item">
               <button type="button" class="btn btn-outline-dark nav-link"> <a class="nav-link" aria-current="page" href="./favoritos.html">Favoritos</a></button>
@@ -49,8 +50,35 @@
       </div>
     </nav>
   </header>
-    <h1>Pagina Favoritos</h1>
-
+  <br><br>
+  <div class="my-2"><h1>Pagina Favoritos</h1></div>
+    
+    <main>
+      <div class="table-responsive" >
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Descripcion</th>
+                    <th>Agregar a carrito</th>
+                    <th>Quitar de favoritos</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-fav">
+                <tr>
+                    <td class="product-image"><img src="https://static1.funidelia.com/518497-f6_big2/disfraz-de-conde-dracula-para-hombre.jpg" alt="Samsung S22"></td>
+                    <td>Nombre</td>
+                    <td >$1000</td>
+                    <td></td>
+                    <td><button class="btn btn-success add-to-cart">Agregar </button></td>
+                    <td><button class="btn btn-danger remove-favorite">Eliminar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </main>
 
 
     <footer class="f-back pt-2 pb-2 w-100 ">
@@ -77,7 +105,7 @@
             <p class="a-footer"><a href="./usuario.html" class="a-footer" >Mi cuenta</a></p>
             <p class="a-footer"><a href="./carrito.html"class="a-footer">Mis compras</a></p>
             <p class="a-footer"><a href="./favoritos.html"class="a-footer">Favoritos</a></p>
-            <p class="a-footer"><a href="./contacto.html"class="a-footer">Ayuda</a></p>
+            <p class="a-footer"><a href="./contactoUser.html"class="a-footer">Ayuda</a></p>
           </div>
           <div class="col-md-4 col-lg-2  mx-auto text-md-end text-lg-start">
             <img
@@ -100,5 +128,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
+    <script src="../scripts/fav.js"></script>
+    <script src="../scripts/predefinidos.js"></script>
 </body>
 </html>

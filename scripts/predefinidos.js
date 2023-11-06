@@ -190,7 +190,7 @@ productos.forEach(producto => {   // Aquí comienza un bucle forEach que recorre
             <h3>${producto.nombre}</h3>
             </div>
             <div class="contenedor-div">
-            <img src="${producto.imagenes}" class="card-img-top square-image" alt="${producto.nombre}">
+            <img src="${producto.imagenes[0]}" class="card-img-top square-image" alt="${producto.nombre}">
             </div>
 
                 <div class="card-body">
