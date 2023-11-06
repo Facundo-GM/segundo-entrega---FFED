@@ -58,12 +58,8 @@ divProduct.innerHTML=filterProduct.map((producto)=>
 <div id="carouselExampleFade" class="carousel slide carousel-fade">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="${producto.imagenes}"
-        class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="${producto.imagenes}"
-        class="d-block w-100" alt="...">
+      <img src="${producto.imagenes[0]}"
+        class="d-block w-100" alt="Articulo para halloween">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
@@ -81,7 +77,7 @@ divProduct.innerHTML=filterProduct.map((producto)=>
 <div class="col-sm-12 col-lg-4">
 <h2>${producto.nombre}<button type="button" class="boton-fav" onclick="addFav(${producto.id})"><i class="bi bi-heart-fill"></i></button></h2>
 <h3 class="my-3">Precio: $${producto.valor}</h3>
-<p>Incluye: Pantalones, camisa con chaleco, capa y zapatos.</p>
+<p>Envios al todo el pais.</p>
 <hr>
 <div class="accordion accordion-flush" id="accordionFlushExample">
   <div class="accordion-item">
@@ -92,7 +88,7 @@ divProduct.innerHTML=filterProduct.map((producto)=>
       </button>
     </h2>
     <div id="flush-collapseOne1" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body"${producto.detalles}.</div>
+      <div class="accordion-body">${producto.detalles}</div>
     </div>
   </div>
 </div>
@@ -236,13 +232,13 @@ const addCar = async (id) => {
         console.log("error")
      }
     }else {
-        location.href="../html/iniciar sesion.html"
+        location.href="../html/iniciar-sesion.html"
     }
    
 }
 
 const addFav = async (id) => {
-    const existUser = JSON.parse(localStorage.getItem("user"));
+    const existUser = JSON.parse(localStorage.getItem("user")) ;
     const favLS = JSON.parse (localStorage.getItem("favoritos")) || [];
     const filterfav = favLS.filter((prod)=> prod.id === id);
 
@@ -259,77 +255,8 @@ const addFav = async (id) => {
            console.log("error")
         }
        }else {
-           location.href="../html/iniciar sesion.html"
+           location.href="../html/iniciar-sesion.html"
        }
 }
 
 
-/* const filterProd = products.filter((prod) => prod.id === Number(idProd));
-
-divCard.innerHTML = filterProd.map(
-  (product) =>
-    `       
-      <div class="d-flex">
-          <img
-              src="${product.image}"
-              class="card-img-top class-img"
-              alt="..."
-          />
-          <div class="card-body">
-           <h5 class="card-title">${product.title}</h5>
-           <p class="card-text">
-           ${product.description}
-           </p>
-          <button class='btn btn-primary' onclick="addCart(${product.id})">Añadir Carrito</button>
-          <button class='btn btn-success' onclick="addFavorite(${product.id})">Añadir Favoritos</button>
-          </div>
-      </div>
-        
-           `
-);
-
-const addCart = async (id) => {
-  const userExist = JSON.parse(localStorage.getItem("user"));
-  const cartLs = JSON.parse(localStorage.getItem("cart")) || [];
-
-
-  if (userExist) {
-    const res = await fetch('https://fakestoreapi.com/products/${idprod');
-    const response =await res.json();
-    cartLs.push(response);
-    console.log(cartLs);
-
-        alert("El Producto ya existe en el carrito");
-      } else {
-      }
-        const filterProd = products.filter((prod) => prod.id === Number(id));
-        cartLs.push(filterProd[0]);
-        localStorage.setItem("cart", JSON.stringify(cartLs));
-      }
-  
-    }
-  } else {
-    location.href = "../html/iniciar-sesion.html";
-};
-
-const addFavorite = async (id) => {
-  const userExist = JSON.parse(localStorage.getItem("user"));
-  const favLs = JSON.parse(localStorage.getItem("favorite")) || [];
-  const filterFav = favLs.filter((fav) => fav.id === id);
-
-  if (userExist) {
-    try {
-      if (filterFav.length > 0) {
-        alert("El Producto ya existe en Favoritos");
-      } else {
-        const filterFav = products.filter((prod) => prod.id === Number(id));
-        favLs.push(filterFav[0]);
-        localStorage.setItem("favorite", JSON.stringify(favLs));
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  } else {
-    location.href = "../html/iniciar-sesion.html";
-  }
-}; */
