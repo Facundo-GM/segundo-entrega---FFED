@@ -45,17 +45,27 @@ const enviarInicio=(ev)=>{
 
   ev.preventDefault();
   
-  validarInicio(inputUsuario);
-  validarInicio(inputContrasenia);
-  
-const users=array.findIndex((user)=>{
-  return users.usuario== users.usuario.value && users.contrasenia==value;
+  if(
+    !objUsuario.usuario&&
+    !objUsuario.contrasenia
+){
+    
+errorUsuario.classList.add("d-none");
+errorContrasenia.classList.add("d-none");
+  } if(!objUsuario.usuario){
+    errorUsuario.classList.remove("d-none");
+  }
+  if(!objUsuario.usuario){
+    errorUsuario.classList.remove(d-none);
+
+const users=users.findIndex((users)=>{
+  return users.usuario== users.usuario.value && users.contrasenia==value==contrasenia.value;
 });
 if (users != -1){
-array[users].estado=true;
+users[users].estado=true;
 
-localStorage.setItem("usuario",JSON.stringify(array[users]))
-if(array[users].role=="users"){
+localStorage.setItem("users",JSON.stringify(users[users]));
+if(users[users].role=="users"){
   setTimeout(()=>{
     location.href="../html/usuario.html";
 
@@ -70,7 +80,7 @@ if(array[users].role=="users"){
  ),2000}
 };
   
-
+};
    console.log(objUsuario);
 
 

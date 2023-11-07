@@ -99,9 +99,7 @@ errorRepetirContrasenia.classList.add("d-none");
     errorContrasenia.classList.remove("d-none");
   }if(!objUsuario.repetirContrasenia){
     errorRepetirContrasenia.classList.remove("d-none");
-  }if (    
-    errorNombreApellido.classList.add("d-none")
-    )if( !objUsuario.usuario&&
+  }if( !objUsuario.usuario&&
         !objUsuario.contrasenia&&
         !objUsuario.repetirContrasenia
        ){
@@ -122,6 +120,9 @@ errorRepetirContrasenia.classList.add("d-none");
                     editarUS:false,
                     editarADM:false,
                     }
+                    
+                    
+                    
                 
             };
 
