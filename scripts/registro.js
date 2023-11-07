@@ -79,42 +79,74 @@ const cambioInputs=(evento) =>{
 const enviarRegistrar=(ev)=>{
 
     ev.preventDefault();
-
-    validarInicio(inputNombreApellido);
-    validarInicio(inputUsuario);
-    validarInicio(inputContrasenia);
-    validarInicio(inputRepetirContrasenia);
-    }
-        if(objUsuario.nombreApellido!=""&&objUsuario.usuario!=""&&objUsuario.contrasenia!=""&&objUsuario.repetirContrasenia!="") 
-        if(objUsuario.contrasenia===objUsuario.repetirContrasenia)
-        {
-         objUsuario.push({
-            id,
-            nombreApellido:nombreApellido.value,
-            contrasenia:contrasenia.value,
-            estado:false,
-            role:"user",
-            permisos:{
-            editarUS:false,
-            editarADM:false,
-            }
-
-        }) 
-    }else{alert ("las contraseñas no coiciden")
+if(
+    !objUsuario.usuario&&
+    !objUsuario.contrasenia&&
+    !objUsuario.repetirContrasenia
+){
     
-    } setTimeout(() =>{
-        location.href="../html/usuario.html"
-        } ,1000);
+errorNombreApellido.classList.add("d-none");
+errorUsuario.classList.add("d-none");
+errorContrasenia.classList.add("d-none");
+errorRepetirContrasenia.classList.add("d-none");
+  } if(!objUsuario.nombreApellido){
+    errorNombreApellido.classList.remove("d-none");
+  }
+  if(!objUsuario.usuario){
+    errorUsuario.classList.remove(d-none);
+
+  }if(!objUsuario.contraseniaontrasenia){
+    errorContrasenia.classList.remove("d-none");
+  }if(!objUsuario.repetirContrasenia){
+    errorRepetirContrasenia.classList.remove("d-none");
+  }if (    
+    errorNombreApellido.classList.add("d-none")
+    )if( !objUsuario.usuario&&
+        !objUsuario.contrasenia&&
+        !objUsuario.repetirContrasenia
+       ){
+            console.log(objUsuario);
+        }if(objUsuario.contrasenia===objUsuario.repetirContrasenia){
+            const users=JSON.parse(localStorage.getItem("users")) || [];
     
-        localStorage.setItem("user",JSON.stringify(array));
-        localStorage.setItem("user"),JSON.stringify(array[array.length-1]);
+            const id=users.length >0 ? users[users.length-1].id+1:1;
+
+            users.PUSH={
+                    id,
+                    nombreApellido:objUsuario.nombreApellido,
+                    contrasenia:objUsuario.contrasenia,
+                    usuario:objUsuario.usuario,
+                    estado:false,
+                    role:"user",
+                    permisos:{
+                    editarUS:false,
+                    editarADM:false,
+                    }
+                
+            };
+
+         users.PUSH(users)
+         console.log(newUser)
+        localStorage.setItem("usuario",JSON.stringify(users));
+        localStorage.setItem("users",JSON.stringify(users[users.length-1]));
+
+
+
+
+        }else{
+            alert("Las contraseñas no coinciden")
+        }setTimeout(()=>{
+            location.href="../html/usuario.html"
+        },2000);
+
+    };
 
         inputNombreApellido.value="";
         inputUsuario.value="";
         inputContrasenia.value="";
         inputRepetirContrasenia.value="";
 
-   
+
 
 inputNombreApellido.addEventListener("input",cambioInputs);
 inputUsuario.addEventListener("input",cambioInputs);
