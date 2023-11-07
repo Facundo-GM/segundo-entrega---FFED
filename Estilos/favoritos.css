@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&display=swap');
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -34,6 +35,10 @@ th {
     height: auto;
 }
 
+.product-image1 img {
+    max-width: 90px;
+    height: auto;
+}
 .add-to-cart:hover, .remove-favorite:hover {
     background: rgb(0, 0, 0);
     color: chocolate;
@@ -66,3 +71,26 @@ th {
     }
 }
 
+.title-h1{
+    font-family: 'Nosifer', sans-serif;
+    background-color: rgb(37, 37, 37);
+    color: rgb(255, 0, 0);
+}
+
+.transp{
+    margin-top: 0px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    
+    
+    
+    max-width: 96%;
+    max-height: 80%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: invert(20%);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}

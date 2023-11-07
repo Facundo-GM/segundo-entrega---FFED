@@ -184,10 +184,10 @@ divProduct.innerHTML=filterProduct.map((producto)=>
 `)
 
 const addCar = async (id) => {
-    const existUser = JSON.parse(localStorage.getItem("user"));
+    const existUser = JSON.parse(localStorage.getItem("--user"));
     const carLS = JSON.parse (localStorage.getItem("carrito")) || [];
     const filterCar = carLS.filter((prod)=> prod.id === id);
-    if(existUser){
+    if(existUser != undefined){
      try {
         if(filterCar.length > 0){
             alert("Este producto ya se encuentra en su carrito")
@@ -213,7 +213,7 @@ const addFav = async (id) => {
     if(existUser != undefined){
         try {
            if(filterfav.length > 0){
-               alert("Este producto ya se encuentra en su carrito")
+               alert("Este producto ya se encuentra en sus favoritos")
            }else{
                const filterProduct = products.filter((prod)=> prod.id === Number(id))
                favLS.push(filterProduct[0])
