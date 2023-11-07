@@ -365,9 +365,9 @@
             <div class="mb-3 mx-2">
               <h4 class="text-center">💬Dejanos tu opinion</h4>
               <form action="">
-                <textarea class="form-control"  width="auto" id="commit" rows="3" minlength="5"
-                  maxlength="140" required></textarea>
-                  <div id="errorC" class="form-text text-danger " >Campo vacio.</div>
+                <textarea class="form-control " name="comentario"  width="auto" id="commit" rows="3" minlength="5"
+                  maxlength="140"></textarea>
+                  <div id="errorC" class="form-text text-danger " >Complete el campo vacio.</div>
             </div>
           </div>
           <div class="col-sm-12 col-md-6 col-lg-4">
@@ -383,8 +383,8 @@
           <div class="col-sm-12 col-md-6 col-lg-4">
             <h4 class="text-center">Dejanos tu conformidad</h4>
             <div class="my-4">
-              <div id="slider" class="slider">
-                <div class="thumb"></div>
+              <div>
+                <input type="range" class="form-range barra" value="0"  id="customRange1">
               </div>
             </div>
           </div>
@@ -392,7 +392,7 @@
       </div>
       <div class="text-center my-5">
         <div class="title-h3"></div>
-        <div class="d-grid gap-2 col-2 mx-auto"><button type="submit" class="btn btn-warning  btn-lg boton-prod1">Enviar</button></div>
+        <div class="d-grid gap-2 col-2 mx-auto"><button type="submit" class="btn btn-warning  btn-lg boton-prod1" id="boton-prod1">Enviar</button></div>
         
         </form>
       </div>
