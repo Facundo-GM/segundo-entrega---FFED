@@ -82,8 +82,6 @@ console.log(click);
 inputUsuario.addEventListener("input",cambioInputs);
 inputRepetirContrasenia.addEventListener("input",cambioInputs);
 inputContrasenia.addEventListener("input",cambioInputs);
-
-
 inputRegister.addEventListener("click",enviarRegistrar);
 
 
