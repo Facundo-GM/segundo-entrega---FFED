@@ -2,7 +2,7 @@ const productos = [
     
     {
         id: 1,
-        nombre: "Sangre roja artificial",
+        nombre: "Sangre  roja artificial",
         detalles: "Añade un toque espeluznante a tu disfraz de Halloween con esta sangre roja artificial. Perfecta para simular heridas, cortes y escenas terroríficas. Esta sangre de alta calidad es ideal para maquillajes de terror y efectos especiales.",
         valor: 1000,
         categoria: "Maquillajes",
@@ -165,49 +165,4 @@ const productos = [
         estado: "disponible"
     }
 ];
-
-const existProduct = JSON.parse(localStorage.getItem(productos)) || [];
-
-if(existProduct.length == 0){
-    localStorage.setItem(productos,JSON.stringify(productos));
-}
-
-
-
-const productCardsContainer = document.getElementById("productCards"); //En esta línea, se obtiene una referencia al elemento HTML con el ID "productCards" y se almacena en la variable productCardsContainer. Esto se utiliza para posteriormente agregar las tarjetas de productos al contenedor.
-
-productos.forEach(producto => {   // Aquí comienza un bucle forEach que recorrerá un array llamado productos, el cual se supone que contiene objetos que representan productos.
-    
-    const card = document.createElement("div");  // Dentro del bucle, se crea un nuevo elemento HTML div y se almacena en la variable card. Este div se utilizará como el contenedor de cada tarjeta de producto.
-    //card.classList.add("cardProduct"); // Se agrega la clase CSS "product-card" al elemento div creado en la línea anterior. Esto le dará un estilo específico a las tarjetas de productos.
-    card.innerHTML = ` 
-        
-        
-
-        <div class="card h-100 d-flex" style="width: 95%;">
-            
-            <div class="title-div">
-            <h3>${producto.nombre}</h3>
-            </div>
-            <div class="contenedor-div">
-            <img src="${producto.imagenes[0]}" class="card-img-top square-image" alt="${producto.nombre}">
-            </div>
-
-                <div class="card-body">
-           
-                    <h3>Precio: $${producto.valor}</h3>
-
-                    <a href="../html/producto.html?id=${producto.id}" class="btn btn-primary botonGoClass">
-                    Ver Mas</a>
-                    <button class='btn btn-success' onclick="addCart(${producto.id})">Añadir al Carrito</button>
-
-                </div>
-        </div>
-
-    `;
-
-     // Agrega la tarjeta al contenedor
-    productCardsContainer.appendChild(card);
-});
-
 
