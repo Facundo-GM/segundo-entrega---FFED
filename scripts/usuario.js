@@ -5,20 +5,21 @@ const buttonLogout = document.getElementById("idLogout");
 
 const userLogout = () => {
 
-  const users = JSON.parse(localStorage.getItem("users"));
-  const user = JSON.parse(localStorage.getItem("user"));
+    let usuariosArr = JSON.parse(localStorage.getItem("--usuarios"));
+    let userArr = JSON.parse(localStorage.getItem("--user"));
 
-  const positionUser = users.findIndex((userLs) => userLs.id === user.id);
+    
+    const sujeto = usuariosArr.findIndex((sujeto) => {
+        return sujeto.nombre === userArr.nombre && sujeto.contrasenia === userArr.contrasenia;
+    });
 
-  user.login = false;
-  users[positionUser] = user;
-
-  localStorage.setItem("users", JSON.stringify(users));
-  localStorage.removeItem("user");
-
-  setTimeout(() => {
-      location.href = "../index.html";
-    }, 1000);
+    usuariosArr[sujeto].log = false;
+    localStorage.setItem("usuarios",JSON.stringify(usuariosArr));
+    
+    setTimeout(()=>{
+        localStorage.removeItem("--user");
+        location.href = "../html/iniciar-sesion.html";
+    },1500);
 };
       
 buttonLogout.addEventListener("click", userLogout);
