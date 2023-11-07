@@ -56,8 +56,7 @@ productos.forEach(producto => {   // Aquí comienza un bucle forEach que recorre
            
                 <h3>Precio: $${producto.valor}</h3>
 
-                <a href="../html/producto.html?id=${producto.id}" class="btn btn-primary botonGoClass">Ver Mas</a>
-                <button class='btn btn-success' onclick="addCart(${producto.id})">Añadir al Carrito</button>
+                <a href="../html/producto.html?id=${producto.id}" class="btn btn-primary botonGoClass text-center">Ver Mas</a>
 
             </div>
         </div>
