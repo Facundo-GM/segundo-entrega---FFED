@@ -202,22 +202,5 @@ hr{
     
 }
 
-.slider {
-    border-radius: 5px;
-    background: rgb(218, 114, 18);
-    background: linear-gradient(left top, #140b0b, #00f700);
-    width: 310px;
-    height: 15px;
-    margin: 5px;
-  }
 
-.thumb {
-    width: 10px ;
-    height: 25px;
-    border-radius: 3px;
-    position: relative;
-    left: px;
-    top: -5px;
-    background: rgb(0, 0, 0);
-    cursor: pointer;
-  }
+

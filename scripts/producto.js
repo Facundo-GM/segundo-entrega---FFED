@@ -3,42 +3,10 @@ const products=JSON.parse(localStorage.getItem("-productos"))
 const idProduct = location.search.split("=")[1];
 const filterProduct = products.filter((prod)=> prod.id === Number(idProduct))
 const divProduct =document.getElementById("divProduct")
-const thumb = slider.querySelector('.thumb');
+const coment = document.getElementById("commit")
+const errorComent = document.getElementById("errorC")
+const botonEnviar = document.getElementById("boton-prod1")
 
-thumb.onmousedown = function(event) {
-  event.preventDefault(); 
-
-  let shiftX = event.clientX - thumb.getBoundingClientRect().left;
-  
-
-  document.addEventListener('mousemove', onMouseMove);
-  document.addEventListener('mouseup', onMouseUp);
-
-  function onMouseMove(event) {
-  const newLeft   = event.clientX - shiftX - slider.getBoundingClientRect().left;
-
-    
-    if (newLeft < 0) {
-      newLeft = 0;
-    }
-    let rightEdge = slider.offsetWidth - thumb.offsetWidth;
-    if (newLeft > rightEdge) {
-      newLeft = rightEdge;
-    }
-
-    thumb.style.left = newLeft + 'px';
-  }
-
-  function onMouseUp() {
-    document.removeEventListener('mouseup', onMouseUp);
-    document.removeEventListener('mousemove', onMouseMove);
-  }
-
-};
-
-thumb.ondragstart = function() {
-  return false;
-};
 
 
 stars.forEach(function (star, index) {
@@ -259,4 +227,32 @@ const addFav = async (id) => {
        }
 }
 
+errorComent.classList.add("d-none")
 
+const objCommit = {
+  comentario : "",
+}
+
+const cambiosInput = (ev) => {
+  objCommit[ev.target.name] = ev.target.value
+  if(ev.target.name === "comentario" && ev.target.value !== ""){
+    coment.classList.remove("is-invalid")
+    errorComent.classList.add("d-none")
+  }else{
+    errorComent.classList.remove("d-none")
+    coment.classList.add("is-invalid")
+  }
+}
+
+const enviarCommit = (ev) =>{
+  ev.preventDefault();
+  if(ev.target.value == ""){
+    errorComent.classList.remove("d-none")
+    coment.classList.add("is-invalid")
+  }
+}
+
+
+
+coment.addEventListener ("input",cambiosInput)
+botonEnviar.addEventListener("click",enviarCommit)
