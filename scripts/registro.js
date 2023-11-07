@@ -3,7 +3,7 @@ const inputUsuario=document.getElementById("inputUsuario");
 const inputContrasenia=document.getElementById("inputContrasenia");
 const inputRepetirContrasenia=document.getElementById("inputRepetirContrasenia");
 const inputRegister=document.getElementById("inputRegister");
-
+const repetirContrasenia=document.getElementById("repetirContrsenia")
 const errorContrasenia=document.getElementById("errorContrasenia");
 const errorUsuario=document.getElementById("errorUsuario");
 const errorRepetirContrasenia=document.getElementById("errorRepetirContrasenia");
@@ -14,52 +14,41 @@ errorNombreApellido.classList.add("d-none");
 errorUsuario.classList.add("d-none");
 errorContrasenia.classList.add("d-none");
 errorRepetirContrasenia.classList.add("d-none");
+  
 
 
-const objUsuario={ 
+const objUsuario={
 nombreApellido:"",
 usuario:"",
 contrasenia:"",
 repetirContrasenia:"",
-
 };
 
-
-const validarInicio = (tag)=>{
-    
+const validarIniciar= (target)=>{
     if(tag.name == "nombreApellido" && tag.value == ""){
         errorNombreApellido.classList.remove("d-none");
     }
     else if(tag.value != ""){
         errorNombreApellido.classList.add("d-none");
     }
-   
-    if (tag.name == "usuario" && tag.value == "")
-    {
+    if(tag.name == "usuario" && tag.value == ""){
         errorUsuario.classList.remove("d-none");
     }
     else if(tag.value != ""){
         errorUsuario.classList.add("d-none");
     }
-
-    if (tag.name == "contrasenia" && tag.value == "")
-    {
-        errorContrasenia.classList.remove("d-none"); 
+    if(tag.name == "contrasenia" && tag.value == ""){
+        errorContrasenia.classList.remove("d-none");
     }
     else if(tag.value != ""){
         errorContrasenia.classList.add("d-none");
-    }
-
-    if (tag.name == "repetirContrasenia" && tag.value == "")
-    {
+    }if(tag.name == "repetirContrasenia" && tag.value == ""){
         errorRepetirContrasenia.classList.remove("d-none");
     }
     else if(tag.value != ""){
         errorRepetirContrasenia.classList.add("d-none");
     }
 };
-
-
 
 const cambioInputs=(evento) =>{
 
@@ -86,6 +75,7 @@ const cambioInputs=(evento) =>{
    
 };
 
+
 const enviarRegistrar=(ev)=>{
 
     ev.preventDefault();
@@ -94,37 +84,37 @@ const enviarRegistrar=(ev)=>{
     validarInicio(inputUsuario);
     validarInicio(inputContrasenia);
     validarInicio(inputRepetirContrasenia);
-    if(objUsuario.contrasenia=== objUsuario.repetirContrasenia){
-        const users =JSON.parse(localStorage.getItem("users")) || [];
-        const id= users.length > 0 ? [users.length -1].id +1:1;
-        const newUsers={
-        id,
-        contrasenia:objUsuario.contrasenia,
-         usuario:objUsuario.usuario,
-        role:"user",
-        login:false,
-        };
-        users.push(newUsers)
+    }
+        if(objUsuario.nombreApellido!=""&&objUsuario.usuario!=""&&objUsuario.contrasenia!=""&&objUsuario.repetirContrasenia!="") 
+        if(objUsuario.contrasenia===objUsuario.repetirContrasenia)
+        {
+         objUsuario.push({
+            id,
+            nombreApellido:nombreApellido.value,
+            contrasenia:contrasenia.value,
+            estado:false,
+            role:"user",
+            permisos:{
+            editarUS:false,
+            editarADM:false,
+            }
+
+        }) 
+    }else{alert ("las contraseñas no coiciden")
     
-       inputNombreApellido.value="";
+    } setTimeout(() =>{
+        location.href="../html/usuario.html"
+        } ,1000);
+    
+        localStorage.setItem("user",JSON.stringify(array));
+        localStorage.setItem("user"),JSON.stringify(array[array.length-1]);
+
+        inputNombreApellido.value="";
         inputUsuario.value="";
         inputContrasenia.value="";
         inputRepetirContrasenia.value="";
-         console.log(users)
-        
-         localStorage.setItem("users",JSON.stringify(users));
-         setTimeout(()=> {
-            location.href="iniciar-sesion.html";
-         },1000);
 
-
-        } else{
-            alert("las contraseñas no ciociden")
-            
-
-        };
-
-};
+   
 
 inputNombreApellido.addEventListener("input",cambioInputs);
 inputUsuario.addEventListener("input",cambioInputs);
@@ -132,4 +122,4 @@ inputRepetirContrasenia.addEventListener("input",cambioInputs);
 inputContrasenia.addEventListener("input",cambioInputs);
 
 
-inputRegister.addEventListener("click",enviarRegistrar);s
+inputRegister.addEventListener("click",enviarRegistrar);
