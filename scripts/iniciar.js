@@ -14,7 +14,7 @@ contrasenia:"",
 errorUsuario.classList.add("d-none");
 errorContrasenia.classList.add("d-none");
 
-const validarIniciar= (target)=>{
+const validarIniciar= (tag)=>{
     
     if(tag.name == "usuario" && tag.value == ""){
         errorUsuario.classList.remove("d-none");
@@ -29,6 +29,7 @@ const validarIniciar= (target)=>{
         errorContrasenia.classList.add("d-none");
     }
 };
+
 const cambioInputs=(evento)=>{
   objUsuario[evento.target.name] = evento.target.value;
   if(evento.target.name === "usuario" && evento.target.value == ""){
@@ -45,44 +46,36 @@ const enviarInicio=(ev)=>{
 
   ev.preventDefault();
   
-  if(
-    !objUsuario.usuario&&
-    !objUsuario.contrasenia
-){
-    
-errorUsuario.classList.add("d-none");
-errorContrasenia.classList.add("d-none");
-  } if(!objUsuario.usuario){
-    errorUsuario.classList.remove("d-none");
-  }
-  if(!objUsuario.usuario){
-    errorUsuario.classList.remove(d-none);
-
-const users=users.findIndex((users)=>{
-  return users.usuario== users.usuario.value && users.contrasenia==value==contrasenia.value;
-});
-if (users != -1){
-users[users].estado=true;
-
-localStorage.setItem("users",JSON.stringify(users[users]));
-if(users[users].role=="users"){
-  setTimeout(()=>{
-    location.href="../html/usuario.html";
-
-  },2000);
-
-}
-
-}else{
-  setTimeout(()=>{
-    location.href="../html/adm-tablas.html";
-}
- ),2000}
-};
+  validarIniciar(inputUsuario)
+  validarIniciar(inputContrasenia)
+  const usuarios= JSON.parse(localStorage.getItem("--usuarios"))
+  console.log(usuarios);
   
-};
-   console.log(objUsuario);
+  const user = usuarios.findIndex((users)=>{
+    return users.mail== objUsuario.usuario && users.contrasenia == objUsuario.contrasenia;
+  });
+  console.log(user)
+  if (user != -1){
+    usuarios[user].log=true;
+  }
+  
+  localStorage.setItem("--user",JSON.stringify(usuarios[user]));
 
+  if(usuarios[user].role=="user"){
+    setTimeout(()=>{
+      location.href="../html/usuario.html";
+
+    },2000);
+
+  }
+  else{
+      setTimeout(()=>{
+        location.href="../html/adm-tablas.html";
+    }),2000}
+}
+
+inputUsuario.value="";
+inputContrasenia.value="";
 
 inputContrasenia.addEventListener("input",cambioInputs);
 inputUsuario.addEventListener("input",cambioInputs);

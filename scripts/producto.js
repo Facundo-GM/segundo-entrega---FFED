@@ -206,11 +206,11 @@ const addCar = async (id) => {
 }
 
 const addFav = async (id) => {
-    const existUser = JSON.parse(localStorage.getItem("user")) ;
+    const existUser = JSON.parse(localStorage.getItem("--user")) ;
     const favLS = JSON.parse (localStorage.getItem("favoritos")) || [];
     const filterfav = favLS.filter((prod)=> prod.id === id);
-
-    if(existUser){
+  
+    if(existUser != undefined){
         try {
            if(filterfav.length > 0){
                alert("Este producto ya se encuentra en su carrito")
@@ -244,12 +244,27 @@ const cambiosInput = (ev) => {
   }
 }
 
-const enviarCommit = (ev) =>{
-  ev.preventDefault();
-  if(ev.target.value == ""){
+
+const validar = (tag)=>{
+  if(tag.value == ""){
     errorComent.classList.remove("d-none")
     coment.classList.add("is-invalid")
   }
+  else{
+    errorComent.classList.add("d-none")
+    coment.classList.remove("is-invalid")
+    coment.classList.add("is-valid")
+  }
+}
+
+const enviarCommit = (ev) =>{
+  ev.preventDefault();
+  validar(coment);
+  
+  if(coment.value != ""){
+    location.href=`../html/producto.html?id=${idProduct}`
+  }
+  
 }
 
 

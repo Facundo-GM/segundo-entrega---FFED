@@ -24,7 +24,7 @@ contrasenia:"",
 repetirContrasenia:"",
 };
 
-const validarIniciar= (target)=>{
+const validarIniciar= (tag)=>{
     if(tag.name == "nombreApellido" && tag.value == ""){
         errorNombreApellido.classList.remove("d-none");
     }
@@ -79,66 +79,69 @@ const cambioInputs=(evento) =>{
 const enviarRegistrar=(ev)=>{
 
     ev.preventDefault();
-if(
-    !objUsuario.usuario&&
-    !objUsuario.contrasenia&&
-    !objUsuario.repetirContrasenia
-){
-    
-errorNombreApellido.classList.add("d-none");
-errorUsuario.classList.add("d-none");
-errorContrasenia.classList.add("d-none");
-errorRepetirContrasenia.classList.add("d-none");
-  } if(!objUsuario.nombreApellido){
-    errorNombreApellido.classList.remove("d-none");
-  }
-  if(!objUsuario.usuario){
-    errorUsuario.classList.remove(d-none);
-
-  }if(!objUsuario.contraseniaontrasenia){
-    errorContrasenia.classList.remove("d-none");
-  }if(!objUsuario.repetirContrasenia){
-    errorRepetirContrasenia.classList.remove("d-none");
-  }if( !objUsuario.usuario&&
+    /*
+    if(
+        !objUsuario.usuario&&
         !objUsuario.contrasenia&&
         !objUsuario.repetirContrasenia
-       ){
+    ){
+        
+    errorNombreApellido.classList.add("d-none");
+    errorUsuario.classList.add("d-none");
+    errorContrasenia.classList.add("d-none");
+    errorRepetirContrasenia.classList.add("d-none");
+    } if(!objUsuario.nombreApellido){
+        errorNombreApellido.classList.remove("d-none");
+    }
+    if(!objUsuario.usuario){
+        errorUsuario.classList.remove("d-none");
+
+    }if(!objUsuario.contraseniaontrasenia){
+        errorContrasenia.classList.remove("d-none");
+    }if(!objUsuario.repetirContrasenia){
+        errorRepetirContrasenia.classList.remove("d-none");
+    }*/
+    validarIniciar(inputNombreApellido)
+    validarIniciar(inputUsuario)
+    validarIniciar(inputContrasenia)
+    validarIniciar(inputRepetirContrasenia)
+  if(objUsuario.nombreApellido != "" &&
+     objUsuario.usuario != "" &&
+     objUsuario.contrasenia != "" &&
+     objUsuario.repetirContrasenia != ""
+    ){
             console.log(objUsuario);
         }if(objUsuario.contrasenia===objUsuario.repetirContrasenia){
-            const users=JSON.parse(localStorage.getItem("users")) || [];
-    
-            const id=users.length >0 ? users[users.length-1].id+1:1;
-
-            users.PUSH={
-                    id,
-                    nombreApellido:objUsuario.nombreApellido,
-                    contrasenia:objUsuario.contrasenia,
-                    usuario:objUsuario.usuario,
-                    estado:false,
-                    role:"user",
-                    permisos:{
+            const users=JSON.parse(localStorage.getItem("--usuarios")) || [];
+            console.log(users)
+            const id = users[users.length -1 ].id +1;
+            console.log(id);
+            
+            users.push({
+                id:id,
+                nombreApellido:objUsuario.nombreApellido,
+                contrasenia:objUsuario.contrasenia,
+                usuario:objUsuario.usuario,
+                estado:true,
+                role:"user",
+                permisos:{
                     editarUS:false,
                     editarADM:false,
-                    }
+                }
+            });
                     
-                    
-                    
-                
-            };
+            console.log(users)
+            localStorage.setItem("--usuarios",JSON.stringify(users));
+            localStorage.setItem("--user",JSON.stringify(users[users.length-1]));
 
-         users.PUSH(users)
-         console.log(newUser)
-        localStorage.setItem("usuario",JSON.stringify(users));
-        localStorage.setItem("users",JSON.stringify(users[users.length-1]));
-
-
-
-
+            setTimeout(()=>{
+                location.href="../html/usuario.html"
+            },2000);
+            
+            
         }else{
             alert("Las contraseñas no coinciden")
-        }setTimeout(()=>{
-            location.href="../html/usuario.html"
-        },2000);
+        }
 
     };
 

@@ -218,4 +218,4 @@ if(existUsers.length == 0){
     localStorage.setItem("--usuarios",JSON.stringify(usuariosPred));
 }
 
-localStorage.setItem("--user",JSON.stringify(usuariosPred[2]));
+//localStorage.setItem("--user",JSON.stringify(usuariosPred[2]));
