@@ -132,4 +132,4 @@ inputRepetirContrasenia.addEventListener("input",cambioInputs);
 inputContrasenia.addEventListener("input",cambioInputs);
 
 
-inputRegister.addEventListener("click",enviarRegistrar);s
+inputRegister.addEventListener("click",enviarRegistrar);
